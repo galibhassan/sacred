@@ -1,5 +1,5 @@
 {
-  "name": "sacred",
+  "name": "sacred-music",
   "version": "1.0.0",
   "description": "A package for musical note conversion, e.g. C D E F -> SA RE GA ma",
   "main": "index.js",

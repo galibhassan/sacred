@@ -53,3 +53,4 @@ The 12 notes of the __Lower Octave__ is denoted by putting an __Underscore ( _ )
     console.log(output);
     // Expected console-output:
     //  [ 'C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5' ]
+
