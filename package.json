@@ -1,0 +1,12 @@
+{
+  "name": "sacred",
+  "version": "1.0.0",
+  "description": "A package for musical note conversion, e.g. C D E F -> SA RE GA ma",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Galib Hassan",
+  "license": "Apache-2.0"
+}
