@@ -45,11 +45,14 @@ The 12 notes of the __Lower Octave__ is denoted by putting an __Underscore ( _ )
       __Returns__ Western notes in an __Array__ corresponding to `inputNoteString`.
 
 ## Example
-    var sacred require('sacred');
-    var notes = 'SA RE GA ma পা ধা নি সা*'
-    var tonic = 'C4'
-    var output = sacred.relativeToAbsolute(notes, tonic);
+```js
+        var sacred require('sacred');
+        var notes = 'SA RE GA ma পা ধা নি সা*'
+        var tonic = 'C4'
+        var output = sacred.relativeToAbsolute(notes, tonic);
     
-    console.log(output);
-    // Expected console-output:
-    //  [ 'C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5' ]
+        console.log(output);
+        // Expected console-output:
+        //  [ 'C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5' ]
+```
+    
