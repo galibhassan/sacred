@@ -36,17 +36,40 @@ The 12 notes of the __Lower Octave__ is denoted by putting an __Underscore ( _ )
   or 
 
   > সা* ঋ* রে* জ্ঞা* গা* মা* হ্মা* পা* দা* ধা* ণি* নি*
+  
+  ### The Tonic
+  The tonic string should be specified by the user. Below, we present the writing convention of chromatic scale for __C5__ :
+  
+  
+| Note (5th octave)  | String |
+| ----- | ------ |
+| C  | `'C5'`  |
+| C♯/ D♭  | `'Cs5'`  |
+| D  | `'D5'`  |
+| D♯/ E♭  | `'Ds5'`  |
+| E  | `'E5'`  |
+| F  | `'F5'`  |
+| F♯/G♭  | `'Fs5'`  |
+| G  | `'G5'`  |
+| G♯/A♭  | `'Gs5'`  |
+| A  | `'A5'`  |
+| A♯/B♭  | `'Bf5'`  |
+| B  | `'B5'` |
+
+For different octaves, just change the octave-number, e.g. `'C1'`, `'C2'`, etc.  
+
+  
 
 ## API 
 -   function __relativeToAbsolute(__ inputNoteString, tonic __)__
       
-      __Input__ `inputNoteString` : String, `tonic` : String 
-
+      __Input__ `inputNoteString` : String - any string containing eastern notes, `tonic` : String - a tonic string (see the table above).
+      
       __Returns__ Western notes in an __Array__ corresponding to `inputNoteString`.
 
 ## Example
 ```js
-        var sacred require('sacred');
+        var sacred = require('sacred');
         var notes = 'SA RE GA ma পা ধা নি সা*'
         var tonic = 'C4'
         var output = sacred.relativeToAbsolute(notes, tonic);
@@ -56,3 +79,7 @@ The 12 notes of the __Lower Octave__ is denoted by putting an __Underscore ( _ )
         //  [ 'C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5' ]
 ```
     
+## FAQ
+- *Why on earth it is named __sacred__? Does it have anything to do with religion or so?*
+
+  Nope. In fact if you take __C__ as tonic, then *SA* converts to *C* and *Re* converts to *D*. Now guess, why it's __sacred__! Feel free to stick to the faith that it *is* something sacred if you haven't still crunched the riddle. ;-) 
