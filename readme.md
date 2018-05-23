@@ -2,7 +2,7 @@
 A package to convert eastern to western musical notation, for example, *SA RE GA ma* to *C D E F*.  
 
 ## Installation 
-> `npm install --save sacred`
+> `npm install --save sacred-music`
 
 ## Description
 This node package provides a functionality which takes eastern notations either in Bangla (Bengali) or English alphabet, and converts into western notations in English alphabet. 
@@ -69,10 +69,10 @@ For different octaves, just change the octave-number, e.g. `'C1'`, `'C2'`, etc.
 
 ## Example
 ```js
-        var sacred = require('sacred');
+        var sacredMusic = require('sacred-music');
         var notes = 'SA RE GA ma পা ধা নি সা*'
         var tonic = 'C4'
-        var output = sacred.relativeToAbsolute(notes, tonic);
+        var output = sacredMusic.relativeToAbsolute(notes, tonic);
     
         console.log(output);
         // Expected console-output:
