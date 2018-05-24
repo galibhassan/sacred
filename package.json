@@ -4,7 +4,8 @@
   "description": "A package for musical note conversion, e.g. C D E F -> SA RE GA ma",
   "main": "index.js",
   "scripts": {},
-  "keywords": [],
+  "keywords": ["notation", "musical notation", "sa re ga ma"],
   "author": "Galib Hassan",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0", 
+  "homepage": "https://github.com/galibhassan/sacred-music"
 }
