@@ -70,8 +70,8 @@ For different octaves, just change the octave-number, e.g. `'C1'`, `'C2'`, etc.
 ## Example
 ```js
         var sacredMusic = require('sacred-music');
-        var notes = 'SA RE GA ma পা ধা নি সা*'
-        var tonic = 'C4'
+        var notes = 'SA RE GA ma পা ধা নি সা*';
+        var tonic = 'C4';
         var output = sacredMusic.relativeToAbsolute(notes, tonic);
     
         console.log(output);
