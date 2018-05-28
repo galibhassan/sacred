@@ -1,3 +1,5 @@
+const noteMapper = require('./noteMapper');
+const chalk = require('chalk');
 /**
  * 
  * @param {String} str a string (a note-list) containing plus sign
@@ -95,9 +97,21 @@ var generateThings = function (userInputNotes) {
 
   allRelativeNotes = removeEmptyElementFromArray(allRelativeNotes);
   var relativeNotesSet = new Set(allRelativeNotes);
+
+  var noteSet = Array.from(relativeNotesSet);
+
+  for (let note of noteSet) {
+    noteNum = noteMapper.noteToNum(note);
+    if(noteNum === 'InvalidNote'){
+      console.log(chalk.bgRgb(207, 106, 70).rgb(255,255,255)(' Error! '));
+      console.log('Invalid Bangla Note: ' + chalk.bgRgb(60,60,60).rgb(240, 64, 37)(`  ${note}  `));
+      return
+    }
+  }
+
   return {
     "noteList": allRelativeNotes,
-    "noteSet": Array.from(relativeNotesSet),
+    "noteSet": noteSet,
     "bars": trimWhiteSpaceFromBars(bars),
     "noOfBars": bars.length,
     "barsWithNoteCount": barsWithNoteCount
