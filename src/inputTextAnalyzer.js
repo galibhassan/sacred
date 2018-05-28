@@ -72,6 +72,7 @@ var trimEveryNoteOfArr = function (arr) {
 }
 
 var findLineFeedAndJoin = function (str) {
+  str = str.toString();
   arr = str.split("\n");
   return arr.join(" ");
 }
@@ -98,14 +99,17 @@ var generateThings = function (userInputNotes) {
   allRelativeNotes = removeEmptyElementFromArray(allRelativeNotes);
   var relativeNotesSet = new Set(allRelativeNotes);
 
-  var noteSet = Array.from(relativeNotesSet);
+  var noteSetString = (Array.from(relativeNotesSet)).toString();
+  var noteSet = noteSetString.split(",");
 
-  for (let note of noteSet) {
+  for (var note of noteSet) {
     noteNum = noteMapper.noteToNum(note);
     if(noteNum === 'InvalidNote'){
       console.log(chalk.bgRgb(207, 106, 70).rgb(255,255,255)(' Error! '));
-      console.log('Invalid Bangla Note: ' + chalk.bgRgb(60,60,60).rgb(240, 64, 37)(`  ${note}  `));
-      return
+      console.log('Invalid Eastern Note: ' + chalk.bgRgb(60,60,60).rgb(240, 64, 37)(`  ${note}  `));
+      return {
+        invalidNote: note
+      }
     }
   }
 
