@@ -9,8 +9,11 @@ var relativeToAbsolute = function(in_noteString, tonic){
    return song.getAbsoluteNotes();
 }
 
-
-module.exports = {
-  relativeToAbsolute: relativeToAbsolute
+var getSongDetails = function(in_noteString){
+  return inputTextAnalyzer.generateThings(in_noteString);
 }
 
+module.exports = {
+  relativeToAbsolute: relativeToAbsolute, 
+  getSongDetails: getSongDetails
+}
