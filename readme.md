@@ -61,23 +61,58 @@ For different octaves, just change the octave-number, e.g. `'C1'`, `'C2'`, etc.
   
 
 ## API 
--   function __relativeToAbsolute(__ inputNoteString, tonic __)__
+-   function __relativeToAbsolute(__ `inputNoteString`, `tonic` __)__
       
       __Input__ `inputNoteString` : String - any string containing eastern notes, `tonic` : String - a tonic string (see the table above).
       
       __Returns__ Western notes in an __Array__ corresponding to `inputNoteString`.
+    ### Example
+    ```js
+    var sacredMusic = require('sacred-music');
+    var notes = 'SA RE GA ma পা ধা নি সা*';
+    var tonic = 'C4';
+    var output = sacredMusic.relativeToAbsolute(notes, tonic);
+        
+    console.log(output);
+    // Expected console-output:
+    //  [ 'C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5' ]
+    ```
 
-## Example
-```js
-        var sacredMusic = require('sacred-music');
-        var notes = 'SA RE GA ma পা ধা নি সা*';
-        var tonic = 'C4';
-        var output = sacredMusic.relativeToAbsolute(notes, tonic);
-    
-        console.log(output);
-        // Expected console-output:
-        //  [ 'C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5' ]
-```
+
+
+- function __getSongDetails(__ `inputNoteString` __)__
+
+    __Input__ `inputNoteString` : String - any string containing eastern notes.
+
+    __Returns__ an *object*, say, `songDetail` which contains:
+    - `noteList`: *Array* - The list of all notes from user input (sequentially), 
+    - `noteSet`: *Array* - The __Set__ of unique notes, i.e. no notes occuring twice in this array,
+    - `bars` : *Array* of arrays - Each element is an array and represents a **Bar**. Bars (also called *measures* in literature) are seperated by a slash ( **/** ). 
+    - `noOfBars`: *Integer* - Number of bars in the song.
+    - `barsWithNoteCount`: *Array* of arrays - Each element is a subarray. An elements of a subarray represents the number of notes located in that specific position.
+
+  ### Example
+  ```js
+  var sacredMusic = require('sacred-music');
+  var notes = 'sa+re ga sa+re ga / re+ga+sa ga re sa / ga re sa re';
+  var songDetail = sacredMusic.getSongDetails(notes);
+  console.log(songDetail);
+
+  // expected output:
+  { 
+    noteList: [ 'sa','re','ga','sa','re','ga','re','ga','sa','ga','re','sa','ga','re','sa','re' ],
+    noteSet: [ 'sa', 're', 'ga' ],
+    bars: [ 'sa+re ga sa+re ga', 're+ga+sa ga re sa', 'ga re sa re' ],
+    noOfBars: 3,
+    barsWithNoteCount: [ [ 2, 1, 2, 1 ], [ 3, 1, 1, 1 ], [ 1, 1, 1, 1 ] ] 
+  }
+  ```
+  Notice, for example, `(songDetail.barsWithNoteCount[1])[0] = 3` corresponds to `re+ga+sa` in the input string.
+
+
+## Invalid input
+  If the you input an arbitrary string which does not contain any of the easter notes, dont worry. It will report the invalidity of the note with an error message.  
+
     
 ## FAQ
 - *Why on earth it is named __sacred music__? Does it have anything to do with religion or so?*
