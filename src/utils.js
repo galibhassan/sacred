@@ -33,8 +33,9 @@ var makeCumulativeArr = function(arr){
 
 
 
-var makeTimeArr = function (singlifiedBar, beatDuration) {
+var makeTimeArr = function (singlifiedBar, tempo) {
   timeArr = [];
+  beatDuration = 60/tempo;
   for (noteCount of singlifiedBar) {
     for (var i = 0; i < noteCount; i++) {
       entryToPush = Number((beatDuration / noteCount).toFixed(2));
