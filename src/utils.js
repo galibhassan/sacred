@@ -47,11 +47,40 @@ var makeTimeArr = function (singlifiedBar, tempo) {
 
 
 
+var checkTargetPositionInArray = function(arr, target){
+  for(let i=0; i<arr.length; i++){
+    if(arr[i] === target){
+      return i;
+    }
+  }
+  return undefined;
+}
+
+var getComparedPositionArr = function(arrayToBeAnalyzed, arrayToSearchIn) {
+  var comparedArr = [];
+  for (let el of arrayToBeAnalyzed) {
+    comparedArr.push( checkTargetPositionInArray(arrayToSearchIn, el) );
+  }
+  return comparedArr;
+}
+
+var arraySum = function(arr){
+  var sum = 0;
+  for(el of arr){
+    sum += el;
+  }
+  return sum;
+}
+
+
 module.exports = {
   findNoteIndexInAllNotes: findNoteIndexInAllNotes,
   mergeBarsIntoSingleArr: mergeBarsIntoSingleArr, 
   makeCumulativeArr: makeCumulativeArr, 
-  makeTimeArr: makeTimeArr
+  makeTimeArr: makeTimeArr, 
+  checkTargetPositionInArray: checkTargetPositionInArray, 
+  getComparedPositionArr: getComparedPositionArr, 
+  arraySum: arraySum
 }
 
 
